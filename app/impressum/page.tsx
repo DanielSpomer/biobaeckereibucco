@@ -1,92 +1,52 @@
-import React from 'react'
-import Header from '../../components/Header'
 import Footer from '../../components/Footer'
+import Header from '../../components/Header'
+import { businessInfo } from '../../lib/content'
 
 export default function Impressum() {
   return (
-    <div className="min-h-screen bg-cream">
+    <div className="page-shell">
       <Header />
-      
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <h1 className="text-4xl font-serif font-bold text-brown mb-8">
-          Impressum
-        </h1>
-        
-        <div className="bg-white rounded-lg p-8 shadow-lg space-y-6">
-          <div>
-            <h2 className="text-xl font-serif font-semibold text-brown mb-3">
-              Angaben gemäß § 5 TMG
-            </h2>
-            <p className="text-brown">
-              Bio-Bäckerei Bucco<br />
-              Mike Bucco<br />
-              Ravenstraße 1<br />
-              13347 Berlin
-            </p>
-          </div>
 
-          <div>
-            <h2 className="text-xl font-serif font-semibold text-brown mb-3">
-              Kontakt
-            </h2>
-            <p className="text-brown">
-              Telefon: 030 4617370<br />
-              E-Mail: biobaeckereibucco@gmail.com
-            </p>
-          </div>
+      <main className="mx-auto max-w-4xl px-6 py-14 md:px-8 lg:px-10">
+        <h1 className="font-serif text-5xl font-black text-charcoal">Impressum</h1>
 
-          <div>
-            <h2 className="text-xl font-serif font-semibold text-brown mb-3">
-              Umsatzsteuer-ID
-            </h2>
-            <p className="text-brown">
-              Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br />
-              DE123456789
+        <div className="mt-8 space-y-8 rounded-[34px] border border-line bg-surface p-8 shadow-soft">
+          <section>
+            <h2 className="font-serif text-2xl font-black text-charcoal">Angaben gemäß § 5 TMG</h2>
+            <p className="mt-4 leading-8 text-muted">
+              {businessInfo.name}
+              <br />
+              Mike Bucco
+              <br />
+              {businessInfo.address[0]}
+              <br />
+              {businessInfo.address[1]}
             </p>
-          </div>
+          </section>
 
-          <div>
-            <h2 className="text-xl font-serif font-semibold text-brown mb-3">
-              Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV
-            </h2>
-            <p className="text-brown">
-              Mike Bucco<br />
-              Ravenstraße 1<br />
-              13347 Berlin
+          <section>
+            <h2 className="font-serif text-2xl font-black text-charcoal">Kontakt</h2>
+            <p className="mt-4 leading-8 text-muted">
+              Telefon: {businessInfo.phone}
+              <br />
+              E-Mail: {businessInfo.email}
             </p>
-          </div>
+          </section>
 
-          <div>
-            <h2 className="text-xl font-serif font-semibold text-brown mb-3">
-              Haftungsausschluss
-            </h2>
-            <div className="space-y-4 text-brown text-sm">
-              <div>
-                <h3 className="font-semibold mb-2">Haftung für Inhalte</h3>
-                <p>
-                  Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht unter der Verpflichtung, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
-                </p>
-              </div>
-              
-              <div>
-                <h3 className="font-semibold mb-2">Haftung für Links</h3>
-                <p>
-                  Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.
-                </p>
-              </div>
-              
-              <div>
-                <h3 className="font-semibold mb-2">Urheberrecht</h3>
-                <p>
-                  Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.
-                </p>
-              </div>
-            </div>
-          </div>
+          <section>
+            <h2 className="font-serif text-2xl font-black text-charcoal">Verantwortlich für den Inhalt</h2>
+            <p className="mt-4 leading-8 text-muted">
+              Mike Bucco
+              <br />
+              {businessInfo.address[0]}
+              <br />
+              {businessInfo.address[1]}
+            </p>
+          </section>
         </div>
-      </div>
+      </main>
 
       <Footer />
     </div>
   )
-} 
+}

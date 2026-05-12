@@ -1,2 +1,8 @@
 node_modules/
+.next/
+out/
 public/FigmaSetup.exe
+.env
+.env.local
+.env*.local
+.vercel

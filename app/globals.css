@@ -1,12 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Merriweather:wght@400;700;900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 75, 59, 42;
-  --background-start-rgb: 250, 247, 240;
-  --background-end-rgb: 250, 247, 240;
+  --background: #f2ebd0;
+  --surface: #fff9e9;
+  --surface-container: #e8ddbe;
+  --foreground: #3b2722;
+  --muted: #5c5049;
+  --line: #d9c9a5;
+  --primary: #00357f;
+  --primary-bright: #004aad;
+  --yellow: #ffca50;
+  --sky: #6aacc2;
+  --green: #6fa162;
+  --red: #a0342a;
 }
 
 * {
@@ -22,9 +31,14 @@ body {
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: rgb(var(--background-start-rgb));
+  color: var(--foreground);
+  background: var(--background);
   font-family: 'Inter', sans-serif;
+}
+
+::selection {
+  background: var(--yellow);
+  color: var(--foreground);
 }
 
 a {
@@ -32,20 +46,33 @@ a {
   text-decoration: none;
 }
 
-.hero-image {
-  filter: sepia(10%) saturate(120%) brightness(95%);
-}
-
-.product-image {
-  filter: sepia(15%) saturate(110%) brightness(90%);
-}
-
 @layer components {
+  .page-shell {
+    @apply min-h-screen overflow-x-hidden bg-background text-charcoal;
+  }
+
+  .section-label {
+    @apply text-xs font-extrabold uppercase text-primary;
+    letter-spacing: 0;
+  }
+
   .btn-primary {
-    @apply bg-brown text-cream px-6 py-3 rounded-lg font-medium hover:bg-brown/90 transition-colors duration-300;
+    @apply inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-extrabold text-white transition duration-300 hover:-translate-y-0.5 hover:bg-primary-bright focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
   }
   
   .btn-secondary {
-    @apply bg-accent text-brown px-6 py-3 rounded-lg font-medium hover:bg-accent/90 transition-colors duration-300;
+    @apply inline-flex items-center justify-center rounded-full border border-primary/55 bg-surface px-6 py-3 text-sm font-extrabold text-primary transition duration-300 hover:-translate-y-0.5 hover:border-primary hover:bg-primary hover:text-white focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
   }
-} 
+
+  .btn-yellow {
+    @apply inline-flex items-center justify-center rounded-full bg-yellow px-6 py-3 text-sm font-extrabold text-charcoal transition duration-300 hover:-translate-y-0.5 hover:brightness-95 focus:outline-none focus:ring-2 focus:ring-yellow focus:ring-offset-2;
+  }
+
+  .product-description {
+    display: -webkit-box;
+    min-height: 7rem;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+  }
+}

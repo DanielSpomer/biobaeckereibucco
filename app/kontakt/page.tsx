@@ -1,237 +1,87 @@
-'use client'
-
-import React, { useState } from 'react'
-import Header from '../../components/Header'
+import Image from 'next/image'
 import Footer from '../../components/Footer'
+import Header from '../../components/Header'
+import { ArrowIcon, ClockIcon } from '../../components/Icons'
+import SectionHeading from '../../components/SectionHeading'
+import { businessInfo } from '../../lib/content'
 
 export default function Kontakt() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    telefon: '',
-    nachricht: ''
-  })
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Hier würde normalerweise die Formular-Übermittlung stattfinden
-    alert('Vielen Dank für Ihre Nachricht! Wir melden uns bald bei Ihnen.')
-    setFormData({ name: '', email: '', telefon: '', nachricht: '' })
-  }
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    })
-  }
-
   return (
-    <div className="min-h-screen bg-cream">
+    <div className="page-shell">
       <Header />
-      
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {/* Page Header */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl font-serif font-bold text-brown sm:text-5xl mb-4">
-            Kontakt
-          </h1>
-          <p className="text-xl text-brown max-w-3xl mx-auto">
-            Haben Sie Fragen zu unseren Backwaren oder möchten Sie eine Bestellung aufgeben? 
-            Wir freuen uns auf Ihre Nachricht!
-          </p>
-        </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Kontaktformular */}
-          <div className="bg-white rounded-lg p-8 shadow-lg">
-            <h2 className="text-2xl font-serif font-bold text-brown mb-6">
-              Schreiben Sie uns
-            </h2>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-brown mb-2">
-                  Name *
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  required
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-brown/20 rounded-lg focus:ring-2 focus:ring-brown/20 focus:border-brown transition-colors duration-200"
-                  placeholder="Ihr vollständiger Name"
-                />
-              </div>
-              
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-brown mb-2">
-                  E-Mail *
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-brown/20 rounded-lg focus:ring-2 focus:ring-brown/20 focus:border-brown transition-colors duration-200"
-                  placeholder="ihre.email@beispiel.de"
-                />
-              </div>
-              
-              <div>
-                <label htmlFor="telefon" className="block text-sm font-medium text-brown mb-2">
-                  Telefon
-                </label>
-                <input
-                  type="tel"
-                  id="telefon"
-                  name="telefon"
-                  value={formData.telefon}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-brown/20 rounded-lg focus:ring-2 focus:ring-brown/20 focus:border-brown transition-colors duration-200"
-                  placeholder="+49 (0) 123 456 789"
-                />
-              </div>
-              
-              <div>
-                <label htmlFor="nachricht" className="block text-sm font-medium text-brown mb-2">
-                  Nachricht *
-                </label>
-                <textarea
-                  id="nachricht"
-                  name="nachricht"
-                  required
-                  rows={6}
-                  value={formData.nachricht}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-brown/20 rounded-lg focus:ring-2 focus:ring-brown/20 focus:border-brown transition-colors duration-200 resize-vertical"
-                  placeholder="Ihre Nachricht an uns..."
-                />
-              </div>
-              
-              <button
-                type="submit"
-                className="w-full btn-primary text-center"
-              >
-                Nachricht senden
-              </button>
-            </form>
-          </div>
+      <main>
+        <section className="mx-auto max-w-7xl px-6 py-14 md:px-8 lg:px-10">
+          <SectionHeading
+            eyebrow="Kontakt"
+            title="Besuchen, anrufen, vorbestellen."
+            description="Für Reservierungen, größere Mengen und Backkursfragen erreichen Sie uns direkt in der Ravenéstraße, per Telefon oder per E-Mail."
+          />
 
-          {/* Kontaktinformationen */}
-          <div className="space-y-8">
-            {/* Adresse */}
-            <div className="bg-white rounded-lg p-8 shadow-lg">
-              <h2 className="text-2xl font-serif font-bold text-brown mb-6">
-                Unsere Bäckerei
-              </h2>
-              <div className="space-y-4">
-                <div className="flex items-start space-x-3">
-                  <svg className="w-6 h-6 text-brown mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                  </svg>
-                  <div>
-                    <h3 className="font-semibold text-brown">Adresse</h3>
-                    <p className="text-brown/80">
-                      Ravenstraße 1<br />
-                      13347 Berlin
-                    </p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-3">
-                  <svg className="w-6 h-6 text-brown mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-                  </svg>
-                  <div>
-                    <h3 className="font-semibold text-brown">Telefon</h3>
-                    <p className="text-brown/80">030 4617370</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-3">
-                  <svg className="w-6 h-6 text-brown mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                  </svg>
-                  <div>
-                    <h3 className="font-semibold text-brown">E-Mail</h3>
-                    <p className="text-brown/80">biobaeckereibucco@gmail.com</p>
-                  </div>
-                </div>
+          <div className="mt-12 grid gap-6 lg:grid-cols-[1fr_1fr]">
+            <div className="rounded-[34px] border border-line bg-surface p-8 shadow-soft">
+              <p className="section-label">Bio-Bäckerei Bucco</p>
+              <h2 className="mt-3 font-serif text-3xl font-black text-charcoal md:text-4xl">Ravenéstraße 1</h2>
+              <div className="mt-6 space-y-3 text-base leading-7 text-muted">
+                {businessInfo.address.map((line) => (
+                  <p key={line}>{line}</p>
+                ))}
+                <p>Telefon: {businessInfo.phone}</p>
+                <p>E-Mail: {businessInfo.email}</p>
+              </div>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <a href={businessInfo.phoneHref} className="btn-primary">
+                  Jetzt anrufen
+                </a>
+                <a href={`mailto:${businessInfo.email}`} className="btn-secondary">
+                  E-Mail senden
+                </a>
               </div>
             </div>
 
-            {/* Öffnungszeiten */}
-            <div className="bg-white rounded-lg p-8 shadow-lg">
-              <h2 className="text-2xl font-serif font-bold text-brown mb-6">
-                Öffnungszeiten
-              </h2>
-              <div className="space-y-3">
-                <div className="flex justify-between items-center">
-                  <span className="text-brown font-medium">Dienstag</span>
-                  <span className="text-brown/80">08:00 - 18:00 Uhr</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-brown font-medium">Mittwoch</span>
-                  <span className="text-brown/80">08:00 - 18:00 Uhr</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-brown font-medium">Donnerstag</span>
-                  <span className="text-brown/80">08:00 - 18:00 Uhr</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-brown font-medium">Freitag</span>
-                  <span className="text-brown/80">08:00 - 18:00 Uhr</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-brown font-medium">Samstag</span>
-                  <span className="text-brown/80">08:00 - 12:00 Uhr</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-brown font-medium">Sonntag</span>
-                  <span className="text-brown/80">Geschlossen</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-brown font-medium">Montag</span>
-                  <span className="text-brown/80">08:00 - 18:00 Uhr</span>
-                </div>
-              </div>
-              <div className="mt-6 p-4 bg-accent/30 rounded-lg">
-                <p className="text-sm text-brown">
-                  <strong>Hinweis:</strong> An Feiertagen können abweichende Öffnungszeiten gelten. 
-                  Bitte rufen Sie uns an oder besuchen Sie unsere Website für aktuelle Informationen.
-                </p>
-              </div>
-            </div>
-
-            {/* Anfahrt */}
-            <div className="bg-white rounded-lg p-8 shadow-lg">
-              <h2 className="text-2xl font-serif font-bold text-brown mb-6">
-                Anfahrt
-              </h2>
-              <div className="space-y-4">
-                <p className="text-brown/80">
-                  Unsere Bäckerei befindet sich im Herzen von Musterstadt, nur 2 Minuten 
-                  vom Marktplatz entfernt.
-                </p>
-                <div className="space-y-2">
-                  <p className="text-brown font-medium">Parkmöglichkeiten:</p>
-                  <ul className="text-brown/80 text-sm space-y-1">
-                    <li>• Kostenlose Parkplätze direkt vor der Bäckerei</li>
-                    <li>• Marktplatz-Parkhaus (5 Min. Fußweg)</li>
-                    <li>• Bushaltestelle "Bäckerstraße" (Linie 12, 34)</li>
-                  </ul>
-                </div>
-              </div>
+            <div className="rounded-[34px] border border-line bg-surface p-8 shadow-soft">
+              <ClockIcon className="h-8 w-8 text-primary" />
+              <h2 className="mt-4 font-serif text-4xl font-black text-charcoal">Öffnungszeiten</h2>
+              <dl className="mt-7 space-y-4">
+                {businessInfo.openingHours.map((row) => (
+                  <div key={row.label} className="flex items-center justify-between gap-4 border-b border-line pb-4">
+                    <dt className="font-semibold text-charcoal">{row.label}</dt>
+                    <dd className="text-muted">{row.value}</dd>
+                  </div>
+                ))}
+              </dl>
+              <p className="mt-6 rounded-[24px] bg-background p-4 text-sm leading-7 text-muted">
+                An Feiertagen können abweichende Öffnungszeiten gelten. Bitte rufen Sie uns an.
+              </p>
             </div>
           </div>
-        </div>
-      </div>
+
+          <div className="mt-6 grid overflow-hidden rounded-[42px] bg-primary text-white shadow-soft lg:grid-cols-[0.9fr_1.1fr]">
+            <div className="p-8">
+              <p className="section-label text-yellow">Instagram</p>
+              <h2 className="mt-3 font-serif text-3xl font-black">Aktuelles aus der Backstube.</h2>
+              <p className="mt-4 max-w-2xl text-sm leading-7 text-white/80">
+                Dort zeigen wir, was gerade aus dem Ofen kommt, welche Kurse geplant sind und wann sich ein Besuch besonders lohnt.
+              </p>
+              <a href={businessInfo.instagram} className="mt-6 inline-flex items-center gap-2 rounded-full bg-yellow px-6 py-3 text-sm font-extrabold text-charcoal">
+                Instagram öffnen
+                <ArrowIcon />
+              </a>
+            </div>
+            <div className="relative min-h-[260px]">
+              <Image
+                src="/images/sections/laden-aussen.jpg"
+                alt="Echter Laden der Bio-Bäckerei Bucco mit gelber Fassade und Auslage"
+                fill
+                sizes="(min-width: 1024px) 55vw, 100vw"
+                className="object-cover object-[50%_45%]"
+              />
+            </div>
+          </div>
+        </section>
+      </main>
 
       <Footer />
     </div>
   )
-} 
+}
