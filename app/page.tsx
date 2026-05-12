@@ -22,10 +22,10 @@ export default function Home() {
       <Header />
 
       <main>
-        <section className="mx-auto grid min-h-[calc(100vh-98px)] max-w-7xl items-center gap-8 px-6 pb-14 pt-8 md:px-8 lg:grid-cols-[0.88fr_1.12fr] lg:gap-12 lg:px-10">
+        <section className="mx-auto grid min-h-[calc(100vh-98px)] max-w-7xl items-center gap-8 px-6 pb-14 pt-8 md:px-8 lg:grid-cols-[minmax(0,0.86fr)_minmax(0,1.14fr)] lg:gap-20 lg:px-10 xl:gap-24">
           <div className="relative z-10 min-w-0">
             <p className="section-label">Bio. Echt. Handgemacht.</p>
-            <h1 className="mt-4 max-w-full whitespace-normal font-serif text-[2.45rem] font-black leading-[1.08] text-charcoal sm:text-5xl md:text-6xl lg:text-7xl">
+            <h1 className="mt-4 max-w-full whitespace-normal font-serif text-[2.45rem] font-black leading-[1.08] text-charcoal sm:text-5xl md:text-6xl lg:text-[4rem] xl:text-[4.25rem]">
               <span className="whitespace-nowrap">Echte Handarbeit.</span>
               <br />
               <span className="whitespace-nowrap">Echte Backwaren.</span>

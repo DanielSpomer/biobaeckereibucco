@@ -7,7 +7,7 @@ import {
   getSupabaseConfig,
   validateBookingRequest,
 } from '../lib/booking.mjs'
-import { insertCourseBooking } from '../lib/supabase-bookings.mjs'
+import { insertCourseBooking, listCourseBookings } from '../lib/supabase-bookings.mjs'
 
 const validPayload = {
   courseSlug: 'sauerteig-brot',
@@ -106,4 +106,25 @@ test('insertCourseBooking surfaces Supabase insert failures', async () => {
     ),
     /Supabase booking insert failed/,
   )
+})
+
+test('listCourseBookings reads recent bookings from Supabase', async () => {
+  let request
+
+  const result = await listCourseBookings(
+    { url: 'https://example.supabase.co', key: 'service-role' },
+    async (url, init) => {
+      request = { url, init }
+      return {
+        ok: true,
+        json: async () => [{ id: 'booking_123', customer_name: 'Daniel Beispiel' }],
+      }
+    },
+  )
+
+  assert.equal(result.length, 1)
+  assert.equal(result[0].id, 'booking_123')
+  assert.equal(request.url, 'https://example.supabase.co/rest/v1/course_bookings?select=*&order=created_at.desc&limit=200')
+  assert.equal(request.init.method, 'GET')
+  assert.equal(request.init.headers.Authorization, 'Bearer service-role')
 })
