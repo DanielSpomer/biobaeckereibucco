@@ -3,9 +3,12 @@ import React from 'react'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Bio-Bäckerei - Echte Handarbeit. Echter Geschmack.',
-  description: 'Traditionelle Bio-Bäckerei mit drei Generationen Erfahrung. Natürliche Zutaten, handwerkliche Tradition und regionaler Bezug.',
-  keywords: 'Bio-Bäckerei, Handwerk, natürliche Zutaten, regional, Brot, Backwaren',
+  title: 'Bio-Bäckerei Bucco - Bio. Echt. Handgemacht.',
+  description: 'Bio-Bäckerei Bucco in Berlin-Wedding: handwerkliche Backwaren, Bio-Zutaten, Backkurse und echte Qualität aus der Ravenéstraße.',
+  keywords: 'Bio-Bäckerei Bucco, Berlin Wedding, Bio Brot, Backkurs, Handwerk, Backwaren',
+  icons: {
+    icon: '/favicon.svg',
+  },
 }
 
 export default function RootLayout({
@@ -15,9 +18,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="de">
-      <body className="bg-cream text-brown min-h-screen">
+      <body className="min-h-screen bg-background text-charcoal">
         {children}
       </body>
     </html>
   )
-} 
+}

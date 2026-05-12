@@ -1,89 +1,93 @@
 'use client'
 
-import React, { useState } from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import { useState } from 'react'
+import Logo from './Logo'
+import { ArrowIcon } from './Icons'
 
-const Header = () => {
+const navigation = [
+  { name: 'Startseite', href: '/' },
+  { name: 'Unsere Backwaren', href: '/produkte' },
+  { name: 'Backkurs', href: '/backkurs' },
+  { name: 'Über uns', href: '/ueber-uns' },
+  { name: 'Kontakt', href: '/kontakt' },
+]
+
+export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-
-  const navigation = [
-    { name: 'Startseite', href: '/' },
-    { name: 'Unsere Backwaren', href: '/produkte' },
-    { name: 'Backkurse', href: '/backkurs' },
-    { name: 'Über uns', href: '/ueber-uns' },
-    { name: 'Kontakt', href: '/kontakt' },
-  ]
+  const pathname = usePathname()
 
   return (
-    <header className="bg-cream shadow-sm relative z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4 md:py-6">
-          {/* Logo */}
-          <div className="flex items-center">
-            <Link href="/" className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-brown rounded-full flex items-center justify-center">
-                <svg className="w-6 h-6 text-cream" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2V7zm0 8h2v2h-2v-2z"/>
-                </svg>
-              </div>
-              <span className="text-xl md:text-2xl font-serif font-bold text-brown">
-                BIO-BÄCKEREI
-              </span>
-            </Link>
-          </div>
+    <header className="sticky top-0 z-50 border-b border-line/70 bg-background/92 backdrop-blur-xl">
+      <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-5 py-2 md:px-8 lg:px-10">
+        <Link href="/" className="flex shrink-0 items-center" aria-label="Zur Startseite">
+          <Logo
+            variant="headerBlue"
+            priority
+            className="h-[70px] w-[83px] object-contain md:h-[82px] md:w-[97px]"
+          />
+        </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
+        <nav className="hidden items-center gap-2 rounded-full border border-line/80 bg-surface/80 p-1.5 md:flex">
+          {navigation.map((item) => {
+            const active = item.href === '/' ? pathname === '/' : pathname?.startsWith(item.href)
+
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={
+                  active
+                    ? 'rounded-full bg-yellow px-4 py-2 text-sm font-extrabold text-charcoal'
+                    : 'rounded-full px-4 py-2 text-sm font-bold text-muted transition hover:bg-white/70 hover:text-primary'
+                }
+              >
+                {item.name}
+              </Link>
+            )
+          })}
+        </nav>
+
+        <Link href="/backkurs" className="hidden items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-extrabold text-white shadow-[0_12px_28px_rgba(0,53,127,0.18)] transition hover:-translate-y-0.5 hover:bg-primary-bright md:inline-flex">
+          Backkurs buchen
+          <ArrowIcon className="h-4 w-4" />
+        </Link>
+
+        <button
+          type="button"
+          onClick={() => setIsMenuOpen((open) => !open)}
+          className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-line bg-surface text-primary md:hidden"
+          aria-label={isMenuOpen ? 'Menü schließen' : 'Menü öffnen'}
+          aria-expanded={isMenuOpen}
+        >
+          <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path
+              d={isMenuOpen ? 'M6 6l12 12M18 6 6 18' : 'M4 7h16M4 12h16M4 17h16'}
+              stroke="currentColor"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+            />
+          </svg>
+        </button>
+      </div>
+
+      {isMenuOpen ? (
+        <nav className="border-t border-line bg-background px-5 py-4 md:hidden">
+          <div className="flex flex-col gap-2">
             {navigation.map((item) => (
               <Link
-                key={item.name}
+                key={item.href}
                 href={item.href}
-                className="text-brown hover:text-brown/70 font-medium transition-colors duration-200"
+                onClick={() => setIsMenuOpen(false)}
+                className="rounded-full px-4 py-3 text-sm font-semibold text-charcoal transition hover:bg-surface"
               >
                 {item.name}
               </Link>
             ))}
-          </nav>
-
-          {/* Mobile menu button */}
-          <div className="md:hidden">
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-brown hover:text-brown/70 focus:outline-none focus:text-brown/70"
-              aria-label="Menu öffnen"
-            >
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
-                />
-              </svg>
-            </button>
           </div>
-        </div>
-
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white/90 rounded-lg shadow-lg">
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="block px-3 py-2 text-brown hover:text-brown/70 font-medium transition-colors duration-200"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </div>
-          </div>
-        )}
-      </div>
+        </nav>
+      ) : null}
     </header>
   )
 }
-
-export default Header 

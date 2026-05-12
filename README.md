@@ -1,149 +1,58 @@
-# Bio-Bäckerei Website
+# Bio-Bäckerei Bucco
 
-Eine moderne, responsive Website für eine traditionelle Bio-Bäckerei, erstellt mit Next.js und Tailwind CSS.
+Premium-Website für die Bio-Bäckerei Bucco in Berlin-Wedding. Die Seite nutzt Next.js, Tailwind CSS, zentrale Content-Daten, eigene Markenassets und ein echtes Backkurs-Buchungsformular mit Supabase-Anbindung über eine serverseitige API-Route.
 
-## 🎯 Features
+## Stack
 
-- ✅ Responsive Design (Mobile, Tablet, Desktop)
-- ✅ Moderne, rustikale Gestaltung mit warmen Farben
-- ✅ Navigationsmenü mit 4 Hauptseiten
-- ✅ Hero-Sektion mit Call-to-Action
-- ✅ Produktübersicht mit 3 Kategorien
-- ✅ USP-Bereiche (Bio-Zutaten, Regional, Authentisch)
-- ✅ Kontaktformular mit Validierung
-- ✅ Barrierefreie Gestaltung (Alt-Texte, gute Kontraste)
-- ✅ SEO-optimiert
+- Next.js App Router
+- TypeScript
+- Tailwind CSS
+- Noto Serif + Inter
+- Supabase REST API über `app/api/bookings/route.ts`
 
-## 🎨 Design
+## Start
 
-### Farbschema
-- **Hintergrund:** Creme (#FAF7F0)
-- **Text:** Dunkelbraun (#4B3B2A)
-- **Akzent:** Warmes Gelb (#FBE8A6)
-- **Gold:** Warmes Gold (#D4AF37)
-
-### Typografie
-- **Überschriften:** Merriweather (Serif)
-- **Fließtext:** Inter (Sans-Serif)
-
-### Bildsprache
-- Warme, sepia-getönte Farben
-- Rustikale Atmosphäre
-- Handwerk und Tradition im Fokus
-
-## 🚀 Installation & Start
-
-### Voraussetzungen
-- Node.js (Version 18 oder höher)
-- npm oder yarn
-
-### Installation
-
-1. Dependencies installieren:
-\`\`\`bash
+```bash
 npm install
-\`\`\`
-
-2. Entwicklungsserver starten:
-\`\`\`bash
 npm run dev
-\`\`\`
+```
 
-3. Website öffnen: [http://localhost:3000](http://localhost:3000)
+Lokale URL: `http://localhost:3000`
 
-### Produktions-Build
+## Prüfung
 
-\`\`\`bash
+```bash
+npm test
+npm run lint
 npm run build
-npm start
-\`\`\`
+```
 
-## 📁 Projektstruktur
+## Supabase Booking
 
-\`\`\`
-├── app/
-│   ├── globals.css          # Globale Styles
-│   ├── layout.tsx          # Root Layout
-│   ├── page.tsx            # Startseite
-│   ├── produkte/
-│   │   └── page.tsx        # Produktseite
-│   ├── ueber-uns/
-│   │   └── page.tsx        # Über uns Seite
-│   └── kontakt/
-│       └── page.tsx        # Kontaktseite
-├── components/
-│   ├── Header.tsx          # Navigation
-│   └── Footer.tsx          # Footer
-├── public/                 # Statische Dateien
-├── tailwind.config.js      # Tailwind Konfiguration
-└── next.config.js          # Next.js Konfiguration
-\`\`\`
+Die Kursbuchung speichert Anfragen in `public.course_bookings`. Das Schema liegt in:
 
-## 🔧 Konfiguration
+```text
+supabase/schema.sql
+```
 
-### Tailwind CSS
-Die Tailwind-Konfiguration ist in `tailwind.config.js` definiert und enthält:
-- Benutzerdefinierte Farben für das Bäckerei-Theme
-- Schriftarten (Merriweather, Inter)
-- Responsive Breakpoints
+Benötigte Umgebungsvariablen:
 
-### Next.js
-- App Router (Next.js 14)
-- TypeScript Support
-- Optimierte Bilder und Performance
+```env
+SUPABASE_URL=https://your-project.supabase.co
+SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
+```
 
-## 📱 Responsive Design
+Die Service-Role darf nur serverseitig in Vercel gesetzt werden. Der Browser erhält keine Supabase-Schreibrechte.
 
-Die Website ist vollständig responsive und optimiert für:
-- **Mobile:** 320px - 768px
-- **Tablet:** 768px - 1024px  
-- **Desktop:** 1024px+
+## Inhalte
 
-## ♿ Barrierefreiheit
+- Produktdaten: `lib/content.ts`
+- Booking-Validierung: `lib/booking.mjs`
+- Business-Informationen: `lib/content.ts`
+- Produktbilder: `public/images/products/`
+- Markenbilder: `public/images/sections/`
+- Logo-Varianten: `public/images/brand/`
 
-- Semantische HTML-Struktur
-- Alt-Texte für alle Bilder
-- Gute Farbkontraste (WCAG konform)
-- Keyboard-Navigation möglich
-- Screen-Reader freundlich
+## Bildsprache
 
-## 🛠 Technologien
-
-- **Framework:** Next.js 14
-- **Styling:** Tailwind CSS
-- **Sprache:** TypeScript
-- **Fonts:** Google Fonts (Merriweather, Inter)
-- **Icons:** Heroicons (embedded SVG)
-
-## 📄 Seiten
-
-1. **Startseite (/)** - Hero, Produktvorschau, USPs
-2. **Produkte (/produkte)** - Vollständige Produktübersicht
-3. **Über uns (/ueber-uns)** - Geschichte und Team
-4. **Kontakt (/kontakt)** - Kontaktformular und Informationen
-
-## 🔄 Weitere Entwicklung
-
-### Mögliche Erweiterungen:
-- CMS-Integration für Produktpflege
-- Online-Bestellsystem
-- Blog/News-Bereich
-- Mehrsprachigkeit
-- E-Commerce-Funktionen
-- Google Maps Integration
-- Newsletter-Anmeldung
-
-### Bilder ersetzen:
-Die Platzhalter-Bilder (`/api/placeholder/...`) sollten durch echte Bilder ersetzt werden:
-- Hero-Bild: Bäcker mit Brot
-- Produktbilder: Professionelle Fotos der Backwaren
-- Team-Fotos: Porträts der Mitarbeiter
-- Bäckerei-Fotos: Innen- und Außenaufnahmen
-
-## 📝 Lizenz
-
-Dieses Projekt wurde für Demonstrationszwecke erstellt.
-
-## 📞 Support
-
-Bei Fragen zur Implementierung oder Anpassungen können Sie sich gerne melden. 
+Die Website nutzt helle, natürliche Food-Fotografie und menschenfreie Backstuben-/Ladenmotive. Keine KI-Schrift, keine Wasserzeichen, keine austauschbaren Stock-Fotos.
