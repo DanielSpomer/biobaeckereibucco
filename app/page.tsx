@@ -22,13 +22,13 @@ export default function Home() {
       <Header />
 
       <main>
-        <section className="mx-auto grid min-h-[calc(100vh-98px)] max-w-7xl items-center gap-8 px-6 pb-14 pt-8 md:px-8 lg:grid-cols-[minmax(0,0.86fr)_minmax(0,1.14fr)] lg:gap-20 lg:px-10 xl:gap-24">
-          <div className="relative z-10 min-w-0">
+        <section className="mx-auto grid min-h-[calc(100vh-98px)] max-w-7xl items-center gap-8 px-6 pb-14 pt-8 md:px-8 lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] lg:gap-14 lg:px-10 xl:gap-20">
+          <div className="relative z-10 min-w-0 max-w-[42rem]">
             <p className="section-label">Bio. Echt. Handgemacht.</p>
-            <h1 className="mt-4 max-w-full whitespace-normal font-serif text-[2.45rem] font-black leading-[1.08] text-charcoal sm:text-5xl md:text-6xl lg:text-[4rem] xl:text-[4.25rem]">
-              <span className="whitespace-nowrap">Echte Handarbeit.</span>
+            <h1 className="mt-4 max-w-[36rem] font-serif text-[clamp(2.6rem,8.8vw,4.15rem)] font-black leading-[1.06] text-charcoal md:text-[clamp(3.4rem,7vw,4.8rem)] lg:text-[clamp(2.3rem,3vw,2.75rem)] xl:text-[3.15rem]">
+              <span>Echte Handarbeit.</span>
               <br />
-              <span className="whitespace-nowrap">Echte Backwaren.</span>
+              <span>Echte Backwaren.</span>
             </h1>
             <p className="mt-6 max-w-md text-lg leading-8 text-muted sm:max-w-xl">
               Unsere Backwaren entstehen mit Zeit, Erfahrung und besten Bio-Zutaten - für Geschmack, der bleibt.

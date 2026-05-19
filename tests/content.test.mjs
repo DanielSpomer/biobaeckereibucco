@@ -58,6 +58,27 @@ test('central product content exists with the approved Bucco catalog', () => {
   }
 })
 
+test('product perspective assets exist for the complete catalog', () => {
+  for (const slug of [
+    'roggenbrot',
+    'sonnenblumenkernbrot',
+    'walnussbrot',
+    'bauernbrot',
+    'dinkelvollkornbrot',
+    'buccos-kraeuter-ritter',
+    'weizenvollkornbroetchen-saaten',
+    'schrippen-sternbroetchen',
+    'bierknoten',
+    'suesse-broetchen',
+    'croissant-hoernchen',
+    'obstzungen',
+    'mohnzopfen',
+  ]) {
+    assert.equal(existsSync(join(root, `public/images/products/${slug}-01.jpg`)), true)
+    assert.equal(existsSync(join(root, `public/images/products/${slug}-02.jpg`)), true)
+  }
+})
+
 test('site source does not use placeholder images or invented bakery story names', () => {
   const haystack = sourceFiles().map((file) => read(file)).join('\n')
 

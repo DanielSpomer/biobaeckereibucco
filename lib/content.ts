@@ -1,5 +1,11 @@
 export type ProductCategory = 'Brot' | 'Brötchen' | 'Süßes'
 
+export type ProductImage = {
+  src: string
+  alt: string
+  label: string
+}
+
 export type Product = {
   slug: string
   name: string
@@ -7,6 +13,7 @@ export type Product = {
   description: string
   price?: string
   image: string
+  images?: ProductImage[]
   badges?: string[]
   vegan?: boolean
   featured?: boolean
@@ -46,6 +53,19 @@ export const businessInfo: BusinessInfo = {
   ],
 }
 
+const productImages = (slug: string, name: string): ProductImage[] => [
+  {
+    src: `/images/products/${slug}-01.jpg`,
+    alt: `${name} in der ersten Produktansicht`,
+    label: 'Ansicht 1',
+  },
+  {
+    src: `/images/products/${slug}-02.jpg`,
+    alt: `${name} in der zweiten Produktansicht`,
+    label: 'Ansicht 2',
+  },
+]
+
 export const products: Product[] = [
   {
     slug: 'roggenbrot',
@@ -54,6 +74,7 @@ export const products: Product[] = [
     description:
       'Als Klassiker unter den Kastenbroten ist unser Roggenvollkornbrot ein echter Allrounder. Herzhaft, süß, zum Dippen oder einfach pur - auch mit Röstzwiebeln oder Kümmel erhältlich.',
     image: '/images/products/roggenbrot.jpg',
+    images: productImages('roggenbrot', 'Roggenbrot'),
     badges: ['Klassiker'],
     vegan: true,
     featured: true,
@@ -65,6 +86,7 @@ export const products: Product[] = [
     description:
       'Mit knusprigen Sonnenblumenkernen und toller Frischhaltung ist dieses Roggen-Weizenvollkornmischbrot besonders gut für herzhafte Beläge geeignet.',
     image: '/images/products/sonnenblumenkernbrot.jpg',
+    images: productImages('sonnenblumenkernbrot', 'Sonnenblumenkernbrot'),
     badges: ['Saaten'],
     vegan: true,
   },
@@ -75,6 +97,7 @@ export const products: Product[] = [
     description:
       'Direkt frei auf unserer Steinplatte gebacken: rustikale Kruste, knusprige Walnusskerne im Inneren und ein Geschmack, der lange hängen bleibt.',
     image: '/images/products/walnussbrot.jpg',
+    images: productImages('walnussbrot', 'Walnussbrot'),
     badges: ['Steinplatte'],
   },
   {
@@ -84,6 +107,7 @@ export const products: Product[] = [
     description:
       'Unsere Version des klassischen Berliner Landbrots. Rustikal, leicht bemehlt, mild säuerlich und genau richtig für eine gute Stulle.',
     image: '/images/products/bauernbrot.jpg',
+    images: productImages('bauernbrot', 'Bauernbrot'),
     badges: ['Berliner Landbrot'],
     featured: true,
   },
@@ -94,6 +118,7 @@ export const products: Product[] = [
     description:
       'Die ganz einfache Variante unserer Dinkelvollkornbrote. Im Laden gibt es je nach Tag auch Dinkel-Saaten oder unsere langzeitgeführte Dinkel-Bauernkruste.',
     image: '/images/products/dinkelvollkornbrot.jpg',
+    images: productImages('dinkelvollkornbrot', 'Dinkelvollkornbrot'),
     badges: ['Dinkel'],
   },
   {
@@ -103,6 +128,7 @@ export const products: Product[] = [
     description:
       'Unser Hausbrot und täglich mit dabei: Kürbiskerne, Leinsaat und Sonnenblumenkerne, gewürzt mit Kümmel, Anis und Fenchel.',
     image: '/images/products/buccos-kraeuter-ritter.jpg',
+    images: productImages('buccos-kraeuter-ritter', 'Buccos Kräuter Ritter'),
     badges: ['Hausbrot'],
     featured: true,
   },
@@ -113,6 +139,7 @@ export const products: Product[] = [
     description:
       'Die volle Wahlfreiheit bei unserem Klassiker: mit Sonnenblumenkernen, Kürbis, Leinsaat, Käse oder Mohn findet sich für jeden Geschmack etwas.',
     image: '/images/products/weizenvollkornbroetchen-saaten.jpg',
+    images: productImages('weizenvollkornbroetchen-saaten', 'Weizenvollkornbrötchen m. Saaten'),
     badges: ['Auswahl'],
   },
   {
@@ -122,6 +149,7 @@ export const products: Product[] = [
     description:
       'Der Klassiker, der nicht fehlen darf. Schrippen, Sternbrötchen und Laugengebäcke werden schonend aufgearbeitet - für natürlichen Geschmack und gute Bekömmlichkeit.',
     image: '/images/products/schrippen-sternbroetchen.jpg',
+    images: productImages('schrippen-sternbroetchen', 'Schrippen/Sternbrötchen'),
     badges: ['Klassiker'],
   },
   {
@@ -132,6 +160,7 @@ export const products: Product[] = [
       'Herzhaft, luftig und aromatisch - perfekt zu Bier oder als deftige Begleitung. Außen rustikal, innen locker.',
     price: '2,80 €',
     image: '/images/products/bierknoten.jpg',
+    images: productImages('bierknoten', 'Bierknoten'),
     badges: ['Herzhaft'],
   },
   {
@@ -141,6 +170,7 @@ export const products: Product[] = [
     description:
       'Für den süßen Zahn haben wir vom klassischen Rosinenbrötchen über Splitter- bis Franzbrötchen alles dabei - sogar in Vollkorn.',
     image: '/images/products/suesse-broetchen.jpg',
+    images: productImages('suesse-broetchen', 'Süße Brötchen'),
     badges: ['Süß'],
   },
   {
@@ -150,6 +180,7 @@ export const products: Product[] = [
     description:
       'Unsere Croissants nach klassischer französischer Herstellungsart: zart buttrig oder komplett vegan als Vollkornvariante.',
     image: '/images/products/croissant-hoernchen.jpg',
+    images: productImages('croissant-hoernchen', 'Croissant/Hörnchen'),
     badges: ['Französisch'],
   },
   {
@@ -160,6 +191,7 @@ export const products: Product[] = [
       'Zarter Mürbeteig mit fruchtiger Füllung und feiner Glasur. Klassisch, aber immer besonders.',
     price: '3,90 €',
     image: '/images/products/obstzungen.jpg',
+    images: productImages('obstzungen', 'Obstzungen'),
     badges: ['Fruchtig'],
     featured: true,
   },
@@ -171,6 +203,7 @@ export const products: Product[] = [
       'Saftiger Hefeteig mit aromatischer Mohnfüllung - traditionell, geflochten und einfach unverwechselbar.',
     price: '5,50 €',
     image: '/images/products/mohnzopfen.jpg',
+    images: productImages('mohnzopfen', 'Mohnzopfen'),
     badges: ['Geflochten'],
   },
 ]

@@ -1,6 +1,6 @@
-import Image from 'next/image'
 import type { Product } from '../lib/content'
 import { ArrowIcon, GrainIcon } from './Icons'
+import ProductImageStage from './ProductImageStage'
 
 type ProductCardProps = {
   product: Product
@@ -8,17 +8,18 @@ type ProductCardProps = {
 }
 
 export default function ProductCard({ product, priority = false }: ProductCardProps) {
+  const images = product.images ?? [
+    {
+      src: product.image,
+      alt: product.name,
+      label: 'Ansicht',
+    },
+  ]
+
   return (
-    <article className="group flex h-full min-h-[540px] flex-col overflow-hidden rounded-[30px] border border-line bg-surface shadow-soft transition duration-300 hover:-translate-y-1 hover:border-primary/25 hover:shadow-lift">
-      <div className="relative aspect-[4/3] shrink-0 overflow-hidden bg-surface-container">
-        <Image
-          src={product.image}
-          alt={product.name}
-          fill
-          priority={priority}
-          sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
-          className="object-cover transition duration-500 group-hover:scale-[1.04]"
-        />
+    <article className="group flex h-full min-h-[548px] flex-col overflow-hidden rounded-[30px] border border-line bg-surface shadow-soft transition duration-300 hover:-translate-y-1 hover:border-primary/25 hover:shadow-lift focus-within:border-primary/30 focus-within:shadow-lift motion-reduce:transition-none">
+      <div className="relative shrink-0">
+        <ProductImageStage images={images} priority={priority} productName={product.name} />
         {product.vegan || product.badges?.[0] ? (
           <div className="absolute left-4 top-4 flex flex-wrap gap-2">
             {product.vegan ? (
