@@ -36,12 +36,12 @@ export default function Backkurs() {
 
           <div className="relative min-h-[360px] overflow-hidden rounded-[42px] border border-line shadow-soft">
             <Image
-              src="/images/sections/backkurs-table.jpg"
-              alt="Vorbereitete Teige und Backzutaten in der Backstube"
+              src="/images/sections/backstube-weizenteig.jpg"
+              alt="Bäcker in der Backstube beim Portionieren von Weizenteig"
               fill
               priority
               sizes="(min-width: 1024px) 56vw, 100vw"
-              className="object-cover"
+              className="object-cover object-[48%_58%]"
             />
           </div>
         </section>

@@ -79,6 +79,16 @@ test('product perspective assets exist for the complete catalog', () => {
   }
 })
 
+test('real bakery section photos from approved image set are present', () => {
+  for (const image of [
+    'backstube-weizenteig.jpg',
+    'laden-team-service.jpg',
+    'laden-alltag-theke.jpg',
+  ]) {
+    assert.equal(existsSync(join(root, `public/images/sections/${image}`)), true)
+  }
+})
+
 test('site source does not use placeholder images or invented bakery story names', () => {
   const haystack = sourceFiles().map((file) => read(file)).join('\n')
 

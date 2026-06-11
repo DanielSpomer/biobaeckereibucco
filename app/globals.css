@@ -57,15 +57,15 @@ a {
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-extrabold text-white transition duration-300 hover:-translate-y-0.5 hover:bg-primary-bright focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+    @apply inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-extrabold text-white transition duration-300 hover:-translate-y-0.5 hover:bg-primary-bright active:translate-y-0 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 motion-reduce:transition-none;
   }
   
   .btn-secondary {
-    @apply inline-flex items-center justify-center rounded-full border border-primary/55 bg-surface px-6 py-3 text-sm font-extrabold text-primary transition duration-300 hover:-translate-y-0.5 hover:border-primary hover:bg-primary hover:text-white focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+    @apply inline-flex items-center justify-center rounded-full border border-primary/55 bg-surface px-6 py-3 text-sm font-extrabold text-primary transition duration-300 hover:-translate-y-0.5 hover:border-primary hover:bg-primary hover:text-white active:translate-y-0 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 motion-reduce:transition-none;
   }
 
   .btn-yellow {
-    @apply inline-flex items-center justify-center rounded-full bg-yellow px-6 py-3 text-sm font-extrabold text-charcoal transition duration-300 hover:-translate-y-0.5 hover:brightness-95 focus:outline-none focus:ring-2 focus:ring-yellow focus:ring-offset-2;
+    @apply inline-flex items-center justify-center rounded-full bg-yellow px-6 py-3 text-sm font-extrabold text-charcoal transition duration-300 hover:-translate-y-0.5 hover:brightness-95 active:translate-y-0 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-yellow focus:ring-offset-2 motion-reduce:transition-none;
   }
 
   .product-description {

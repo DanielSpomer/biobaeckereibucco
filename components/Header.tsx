@@ -40,7 +40,7 @@ export default function Header() {
                 className={
                   active
                     ? 'rounded-full bg-yellow px-4 py-2 text-sm font-extrabold text-charcoal'
-                    : 'rounded-full px-4 py-2 text-sm font-bold text-muted transition hover:bg-white/70 hover:text-primary'
+                    : 'rounded-full px-4 py-2 text-sm font-bold text-muted transition hover:bg-white/70 hover:text-primary active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-surface motion-reduce:transition-none'
                 }
               >
                 {item.name}
@@ -49,7 +49,7 @@ export default function Header() {
           })}
         </nav>
 
-        <Link href="/backkurs" className="hidden items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-extrabold text-white shadow-[0_12px_28px_rgba(0,53,127,0.18)] transition hover:-translate-y-0.5 hover:bg-primary-bright md:inline-flex">
+        <Link href="/backkurs" className="hidden items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-extrabold text-white shadow-[0_12px_28px_rgba(0,53,127,0.18)] transition duration-300 hover:-translate-y-0.5 hover:bg-primary-bright active:translate-y-0 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 motion-reduce:transition-none md:inline-flex">
           Backkurs buchen
           <ArrowIcon className="h-4 w-4" />
         </Link>
@@ -57,7 +57,7 @@ export default function Header() {
         <button
           type="button"
           onClick={() => setIsMenuOpen((open) => !open)}
-          className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-line bg-surface text-primary md:hidden"
+          className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-line bg-surface text-primary transition active:scale-95 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 md:hidden"
           aria-label={isMenuOpen ? 'Menü schließen' : 'Menü öffnen'}
           aria-expanded={isMenuOpen}
         >
@@ -80,7 +80,7 @@ export default function Header() {
                 key={item.href}
                 href={item.href}
                 onClick={() => setIsMenuOpen(false)}
-                className="rounded-full px-4 py-3 text-sm font-semibold text-charcoal transition hover:bg-surface"
+                className="rounded-full px-4 py-3 text-sm font-semibold text-charcoal transition hover:bg-surface active:scale-[0.99] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
               >
                 {item.name}
               </Link>

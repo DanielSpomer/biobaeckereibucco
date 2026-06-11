@@ -35,16 +35,16 @@ export default function CourseTeaser() {
 
           <div className="mt-8 overflow-hidden rounded-[34px] border border-white/18">
             <Image
-              src="/images/sections/backkurs-table.jpg"
-              alt="Vorbereitete Teige und Backzutaten für den Backkurs"
+              src="/images/sections/backstube-weizenteig.jpg"
+              alt="Bäcker in der Backstube beim Portionieren von Weizenteig"
               width={900}
               height={506}
               sizes="(min-width: 1024px) 42vw, 100vw"
-              className="h-auto w-full object-cover"
+              className="aspect-[16/9] h-auto w-full object-cover object-[48%_58%]"
             />
           </div>
 
-          <Link href="/backkurs" className="mt-7 inline-flex items-center gap-2 rounded-full px-3 py-2 text-sm font-extrabold text-yellow transition hover:bg-yellow hover:text-charcoal">
+          <Link href="/backkurs" className="mt-7 inline-flex items-center gap-2 rounded-full px-3 py-2 text-sm font-extrabold text-yellow transition hover:bg-yellow hover:text-charcoal active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-yellow focus:ring-offset-2 focus:ring-offset-primary motion-reduce:transition-none">
             Kursdetails ansehen
             <ArrowIcon />
           </Link>

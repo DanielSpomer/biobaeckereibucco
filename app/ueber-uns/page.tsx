@@ -39,12 +39,12 @@ export default function UeberUns() {
           </div>
           <div className="relative min-h-[380px] overflow-hidden rounded-[42px] border border-line shadow-soft">
             <Image
-              src="/images/sections/laden-aussen.jpg"
-              alt="Echter Laden der Bio-Bäckerei Bucco mit gelber Fassade und Auslage"
+              src="/images/sections/laden-team-service.jpg"
+              alt="Mitarbeiterin der Bio-Bäckerei Bucco im Laden an der Theke"
               fill
               priority
               sizes="(min-width: 1024px) 56vw, 100vw"
-              className="object-cover object-[50%_45%]"
+              className="object-cover object-[46%_52%]"
             />
           </div>
         </section>

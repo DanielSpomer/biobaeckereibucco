@@ -63,18 +63,18 @@ export default function Kontakt() {
               <p className="mt-4 max-w-2xl text-sm leading-7 text-white/80">
                 Dort zeigen wir, was gerade aus dem Ofen kommt, welche Kurse geplant sind und wann sich ein Besuch besonders lohnt.
               </p>
-              <a href={businessInfo.instagram} className="mt-6 inline-flex items-center gap-2 rounded-full bg-yellow px-6 py-3 text-sm font-extrabold text-charcoal">
+              <a href={businessInfo.instagram} className="mt-6 inline-flex items-center gap-2 rounded-full bg-yellow px-6 py-3 text-sm font-extrabold text-charcoal transition duration-300 hover:-translate-y-0.5 hover:brightness-95 active:translate-y-0 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-yellow focus:ring-offset-2 focus:ring-offset-primary motion-reduce:transition-none">
                 Instagram öffnen
                 <ArrowIcon />
               </a>
             </div>
             <div className="relative min-h-[260px]">
               <Image
-                src="/images/sections/laden-aussen.jpg"
-                alt="Echter Laden der Bio-Bäckerei Bucco mit gelber Fassade und Auslage"
+                src="/images/sections/laden-alltag-theke.jpg"
+                alt="Ladenalltag in der Bio-Bäckerei Bucco mit Brotregal und Theke"
                 fill
                 sizes="(min-width: 1024px) 55vw, 100vw"
-                className="object-cover object-[50%_45%]"
+                className="object-cover object-[42%_50%]"
               />
             </div>
           </div>

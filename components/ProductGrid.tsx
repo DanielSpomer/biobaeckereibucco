@@ -25,8 +25,8 @@ export default function ProductGrid() {
             onClick={() => setSelected(category)}
             className={
               selected === category
-                ? 'rounded-full bg-primary px-6 py-3 text-sm font-extrabold text-white shadow-soft'
-                : 'rounded-full border border-line bg-surface px-6 py-3 text-sm font-extrabold text-primary transition hover:border-primary hover:bg-white'
+                ? 'rounded-full bg-primary px-6 py-3 text-sm font-extrabold text-white shadow-soft transition active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 motion-reduce:transition-none'
+                : 'rounded-full border border-line bg-surface px-6 py-3 text-sm font-extrabold text-primary transition hover:border-primary hover:bg-white active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 motion-reduce:transition-none'
             }
           >
             {category === 'Alle' ? 'Alle Backwaren' : category}

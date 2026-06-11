@@ -82,8 +82,8 @@ export default function Home() {
               description="Eine kleine Auswahl aus unserem umfangreichen Sortiment - täglich frisch aus unserer Produktion."
             />
             <div className="mt-12 grid auto-rows-fr gap-6 md:grid-cols-2 lg:grid-cols-4">
-              {featuredProducts.map((product) => (
-                <ProductCard key={product.slug} product={product} />
+              {featuredProducts.map((product, index) => (
+                <ProductCard key={product.slug} product={product} priority={index < 4} />
               ))}
             </div>
             <div className="mt-10 text-center">
@@ -124,7 +124,7 @@ export default function Home() {
                   Brote in der Auslage und Backwaren, die nicht nach Schaufenster aussehen, sondern nach
                   sofort probieren.
                 </p>
-                <Link href="/ueber-uns" className="mt-7 inline-flex items-center gap-2 rounded-full px-3 py-2 text-sm font-extrabold text-primary transition hover:bg-primary hover:text-white">
+                <Link href="/ueber-uns" className="mt-7 inline-flex items-center gap-2 rounded-full px-3 py-2 text-sm font-extrabold text-primary transition hover:bg-primary hover:text-white active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 motion-reduce:transition-none">
                   Mehr über uns
                   <ArrowIcon />
                 </Link>

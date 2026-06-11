@@ -33,6 +33,7 @@ export default function ProductImageStage({
           alt={image.alt}
           fill
           priority={priority && index === 0}
+          loading={priority && index > 0 ? 'eager' : undefined}
           sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
           className={[
             'object-cover transition duration-500 ease-out motion-reduce:transition-none',
@@ -49,20 +50,28 @@ export default function ProductImageStage({
           <div className="pointer-events-none absolute bottom-4 left-4 rounded-full bg-surface/90 px-3 py-1 text-[0.68rem] font-extrabold uppercase text-primary opacity-0 shadow-sm backdrop-blur transition duration-300 group-hover:opacity-100 group-focus-within:opacity-100 motion-reduce:transition-none">
             zweite Ansicht
           </div>
-          <div className="absolute bottom-3 right-3 flex gap-2 rounded-full bg-surface/92 p-1 shadow-soft backdrop-blur">
+          <div className="absolute bottom-3 right-3 flex gap-1 rounded-full bg-surface/92 p-1 shadow-soft backdrop-blur">
             {images.map((image, index) => (
               <button
                 key={image.src}
                 type="button"
                 className={[
-                  'h-2.5 w-2.5 rounded-full transition focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-surface motion-reduce:transition-none',
-                  index === activeIndex ? 'bg-primary' : 'bg-line hover:bg-primary/55',
+                  'flex h-11 w-11 items-center justify-center rounded-full transition active:scale-95 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-surface motion-reduce:transition-none',
+                  index === activeIndex ? 'bg-primary/10' : 'hover:bg-primary/8',
                 ].join(' ')}
                 aria-label={`${productName}: ${image.label} anzeigen`}
                 aria-pressed={index === activeIndex}
                 onClick={() => setActiveIndex(index)}
                 onFocus={() => setActiveIndex(index)}
-              />
+              >
+                <span
+                  className={[
+                    'h-2.5 w-2.5 rounded-full transition motion-reduce:transition-none',
+                    index === activeIndex ? 'bg-primary' : 'bg-line',
+                  ].join(' ')}
+                  aria-hidden="true"
+                />
+              </button>
             ))}
           </div>
         </>

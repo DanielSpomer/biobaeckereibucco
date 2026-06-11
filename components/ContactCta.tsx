@@ -14,7 +14,7 @@ export default function ContactCta() {
           <p className="mt-4 max-w-xl text-sm leading-7 text-white/80">
             Erleben Sie den Duft frischer Backwaren direkt in unserer Backstube und nehmen Sie mit, was der Ofen gerade hergibt.
           </p>
-          <Link href="/kontakt" className="mt-7 inline-flex items-center gap-2 rounded-full bg-yellow px-6 py-3 text-sm font-extrabold text-charcoal transition hover:-translate-y-0.5">
+          <Link href="/kontakt" className="mt-7 inline-flex items-center gap-2 rounded-full bg-yellow px-6 py-3 text-sm font-extrabold text-charcoal transition duration-300 hover:-translate-y-0.5 hover:brightness-95 active:translate-y-0 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-yellow focus:ring-offset-2 focus:ring-offset-primary motion-reduce:transition-none">
             Filiale & Öffnungszeiten
             <ArrowIcon />
           </Link>

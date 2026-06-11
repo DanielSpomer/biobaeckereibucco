@@ -47,7 +47,7 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
           <span className="text-sm font-semibold text-charcoal">
             {product.price ?? product.category}
           </span>
-          <a href={`/produkte#${product.slug}`} className="inline-flex items-center gap-2 rounded-full px-3 py-2 text-sm font-extrabold text-primary transition hover:bg-primary hover:text-white">
+          <a href={`/produkte#${product.slug}`} className="inline-flex items-center gap-2 rounded-full px-3 py-2 text-sm font-extrabold text-primary transition hover:bg-primary hover:text-white active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 motion-reduce:transition-none">
             Mehr erfahren
             <ArrowIcon />
           </a>
