@@ -11,7 +11,7 @@ const sources = {
   mark: '/images/brand/logo-mark.svg',
   headerBlue: '/images/brand/bucco-header-blue-top.png',
   horizontal: '/images/brand/logo-horizontal.svg',
-  footer: '/images/brand/bucco_footer_logo.svg',
+  footer: '/images/brand/bucco-header-blue-top.png',
 }
 
 const sizes = {
@@ -19,7 +19,7 @@ const sizes = {
   mark: { width: 54, height: 54 },
   headerBlue: { width: 770, height: 650 },
   horizontal: { width: 210, height: 68 },
-  footer: { width: 170, height: 144 },
+  footer: { width: 770, height: 650 },
 }
 
 export default function Logo({ variant = 'badge', className = '', priority = false }: LogoProps) {
