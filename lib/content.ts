@@ -258,6 +258,9 @@ export const productCategories: Array<ProductCategory | 'Alle'> = [
 
 export const featuredProducts = products.filter((product) => product.featured)
 
+export const getProductBySlug = (slug: string) =>
+  products.find((product) => product.slug === slug)
+
 export const course: Course = {
   title: 'Backkurs - Bio-Bäckerei Bucco',
   cadence: 'Jeden ersten Samstag im Monat',

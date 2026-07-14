@@ -123,3 +123,36 @@ test('footer and contact source use the approved opening hours', () => {
   assert.match(haystack, /Sa.*08:00.*12:00/s)
   assert.match(haystack, /So.*Geschlossen/s)
 })
+
+test('product cards link to detail pages without perspective overlays or text clamping', () => {
+  const card = read('components/ProductCard.tsx')
+  const stage = read('components/ProductImageStage.tsx')
+  const styles = read('app/globals.css')
+
+  assert.match(card, /href={`\/produkte\/\$\{product\.slug\}`}/)
+  assert.match(card, /Produkt ansehen/)
+  assert.doesNotMatch(stage, /aria-pressed|activeIndex|<button/)
+  assert.doesNotMatch(styles, /-webkit-line-clamp/)
+})
+
+test('every approved product is statically addressable on an individual page', () => {
+  const productPage = read('app/produkte/[slug]/page.tsx')
+
+  assert.match(productPage, /generateStaticParams/)
+  assert.match(productPage, /getProductBySlug/)
+  assert.match(productPage, /notFound/)
+  assert.match(productPage, /Frisch in unserer Ladentheke/)
+})
+
+test('product overview does not show the internal assortment index', () => {
+  assert.doesNotMatch(read('app/produkte/page.tsx'), /01 \/ Sortiment/)
+})
+
+test('favicon is the isolated yellow Bucco bread mark', () => {
+  const favicon = read('public/favicon.svg')
+
+  assert.match(favicon, /M66 119c5-17/)
+  assert.match(favicon, /#ffca50/g)
+  assert.doesNotMatch(favicon, /#00357f/)
+  assert.equal(existsSync(join(root, 'app/icon.svg')), true)
+})

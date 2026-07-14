@@ -7,9 +7,9 @@ export const metadata: Metadata = {
   description: 'Bio-Bäckerei Bucco in Berlin-Wedding: handwerkliche Backwaren, Bio-Zutaten, Backkurse und echte Qualität aus der Ravenéstraße.',
   keywords: 'Bio-Bäckerei Bucco, Berlin Wedding, Bio Brot, Backkurs, Handwerk, Backwaren',
   icons: {
-    icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
-    shortcut: ['/favicon.svg'],
-    apple: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
+    icon: [{ url: '/favicon.svg?v=3', type: 'image/svg+xml' }],
+    shortcut: ['/favicon.svg?v=3'],
+    apple: [{ url: '/favicon.svg?v=3', type: 'image/svg+xml' }],
   },
 }
 

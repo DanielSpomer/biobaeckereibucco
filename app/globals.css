@@ -82,10 +82,6 @@ a {
   }
 
   .product-description {
-    display: -webkit-box;
-    min-height: 5.25rem;
-    overflow: hidden;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
+    text-wrap: pretty;
   }
 }

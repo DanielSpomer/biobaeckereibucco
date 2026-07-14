@@ -10,8 +10,7 @@ export default function Produkte() {
 
       <main>
         <section className="mx-auto max-w-7xl px-6 py-12 md:px-8 md:py-16 lg:px-10">
-          <div className="grid gap-7 border-b border-primary/25 pb-10 lg:grid-cols-[0.32fr_1fr_0.72fr] lg:items-end">
-            <p className="section-label self-start">01 / Sortiment</p>
+          <div className="grid gap-7 border-b border-primary/25 pb-10 lg:grid-cols-[1.18fr_0.82fr] lg:items-end">
             <h1 className="max-w-3xl font-serif text-5xl font-normal leading-[0.98] text-charcoal md:text-[3.8rem]">
               Echte Backwaren. Jeden Morgen neu.
             </h1>

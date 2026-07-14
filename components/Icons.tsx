@@ -53,3 +53,23 @@ export function ClockIcon({ className = 'h-5 w-5' }: IconProps) {
     </svg>
   )
 }
+
+export function QualityIcon({ className = 'h-5 w-5' }: IconProps) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="m12 2.8 2.2 1.5 2.7-.2 1.1 2.5 2.3 1.5-.6 2.7 1.2 2.4-1.8 2-.2 2.7-2.6.7-1.6 2.2-2.7-1-2.7 1-1.6-2.2-2.6-.7-.2-2.7-1.8-2 1.2-2.4-.6-2.7L6 6.6l1.1-2.5 2.7.2L12 2.8Z" stroke="currentColor" strokeWidth="1.65" strokeLinejoin="round" />
+      <path d="m8.6 12.2 2.2 2.2 4.8-5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  )
+}
+
+export function RegionIcon({ className = 'h-5 w-5' }: IconProps) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M12 21s6.5-5.4 6.5-11.2a6.5 6.5 0 1 0-13 0C5.5 15.6 12 21 12 21Z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
+      <path d="M12 13.1V7.2" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+      <path d="M12 9.3c-1.7 0-2.9-.8-3.5-2.4 1.7 0 2.9.8 3.5 2.4Z" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" />
+      <path d="M12 11.8c1.8 0 3-.9 3.7-2.6-1.8 0-3.1.9-3.7 2.6Z" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" />
+    </svg>
+  )
+}

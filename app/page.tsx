@@ -4,7 +4,15 @@ import ContactCta from '../components/ContactCta'
 import CourseTeaser from '../components/CourseTeaser'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
-import { ArrowIcon, GrainIcon, HandsIcon, LeafIcon } from '../components/Icons'
+import {
+  ArrowIcon,
+  ClockIcon,
+  GrainIcon,
+  HandsIcon,
+  LeafIcon,
+  QualityIcon,
+  RegionIcon,
+} from '../components/Icons'
 import ProductCard from '../components/ProductCard'
 import SectionHeading from '../components/SectionHeading'
 import { businessInfo, featuredProducts, values } from '../lib/content'
@@ -13,8 +21,10 @@ const trustItems = [
   { icon: LeafIcon, label: '100% Bio zertifiziert' },
   { icon: GrainIcon, label: 'Natürliche Zutaten' },
   { icon: HandsIcon, label: 'Handwerk mit Herz' },
-  { icon: GrainIcon, label: 'Regionale Partner' },
+  { icon: RegionIcon, label: 'Regionale Partner' },
 ]
+
+const valueIcons = [LeafIcon, ClockIcon, QualityIcon, RegionIcon]
 
 export default function Home() {
   return (
@@ -101,13 +111,17 @@ export default function Home() {
           <div className="mx-auto max-w-7xl px-6 md:px-8 lg:px-10">
           <SectionHeading eyebrow="Was Bucco ausmacht" title="Beste Zutaten. Ehrliches Handwerk." tone="inverse" align="left" />
           <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-            {values.map((value) => (
-              <div key={value.title} className="border-l border-yellow/60 pl-5">
-                <GrainIcon className="h-9 w-9 text-yellow" />
-                <h3 className="mt-5 font-serif text-2xl font-normal text-white">{value.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-white/76">{value.description}</p>
-              </div>
-            ))}
+            {values.map((value, index) => {
+              const Icon = valueIcons[index]
+
+              return (
+                <div key={value.title} className="border-l border-yellow/60 pl-5">
+                  <Icon className="h-9 w-9 text-yellow" />
+                  <h3 className="mt-5 font-serif text-2xl font-normal text-white">{value.title}</h3>
+                  <p className="mt-3 text-sm leading-7 text-white/76">{value.description}</p>
+                </div>
+              )
+            })}
           </div>
           </div>
         </section>
