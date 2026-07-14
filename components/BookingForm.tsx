@@ -77,7 +77,7 @@ export default function BookingForm() {
   const isLoading = state.status === 'loading'
 
   return (
-    <form onSubmit={onSubmit} className="rounded-[34px] border border-line bg-surface p-5 text-charcoal shadow-lift md:p-6">
+    <form onSubmit={onSubmit} className="rounded-[6px] border border-primary/20 bg-surface p-5 text-charcoal shadow-[0_18px_54px_rgba(0,0,0,0.12)] md:p-6">
       <div className="grid gap-4 md:grid-cols-2">
         <div className="md:col-span-2">
           <label htmlFor="courseSlug" className="text-sm font-bold text-charcoal">
@@ -86,7 +86,7 @@ export default function BookingForm() {
           <select
             id="courseSlug"
             name="courseSlug"
-            className="mt-2 h-12 w-full rounded-full border border-line bg-white px-4 text-sm text-charcoal focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+            className="mt-2 h-12 w-full rounded-[4px] border border-line bg-white px-4 text-sm text-charcoal focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
             defaultValue={COURSE_OPTIONS[0].slug}
           >
             {COURSE_OPTIONS.map((course) => (
@@ -108,7 +108,7 @@ export default function BookingForm() {
             type="date"
             min={new Date().toISOString().slice(0, 10)}
             defaultValue={initialDate}
-            className="mt-2 h-12 w-full rounded-full border border-line bg-white px-4 text-sm text-charcoal focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+            className="mt-2 h-12 w-full rounded-[4px] border border-line bg-white px-4 text-sm text-charcoal focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
           />
           {errors.date ? <p className="mt-2 text-sm text-red-700">{errors.date}</p> : null}
         </div>
@@ -120,7 +120,7 @@ export default function BookingForm() {
           <select
             id="time"
             name="time"
-            className="mt-2 h-12 w-full rounded-full border border-line bg-white px-4 text-sm text-charcoal focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+            className="mt-2 h-12 w-full rounded-[4px] border border-line bg-white px-4 text-sm text-charcoal focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
             defaultValue={COURSE_TIME_SLOTS[0]}
           >
             {COURSE_TIME_SLOTS.map((slot) => (
@@ -139,7 +139,7 @@ export default function BookingForm() {
           <select
             id="participants"
             name="participants"
-            className="mt-2 h-12 w-full rounded-full border border-line bg-white px-4 text-sm text-charcoal focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+            className="mt-2 h-12 w-full rounded-[4px] border border-line bg-white px-4 text-sm text-charcoal focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
             defaultValue="1"
           >
             {Array.from({ length: 8 }, (_, index) => String(index + 1)).map((count) => (
@@ -159,7 +159,7 @@ export default function BookingForm() {
             id="name"
             name="name"
             autoComplete="name"
-            className="mt-2 h-12 w-full rounded-full border border-line bg-white px-4 text-sm text-charcoal focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+            className="mt-2 h-12 w-full rounded-[4px] border border-line bg-white px-4 text-sm text-charcoal focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
           />
           {errors.name ? <p className="mt-2 text-sm text-red-700">{errors.name}</p> : null}
         </div>
@@ -174,7 +174,7 @@ export default function BookingForm() {
             type="text"
             inputMode="email"
             autoComplete="email"
-            className="mt-2 h-12 w-full rounded-full border border-line bg-white px-4 text-sm text-charcoal focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+            className="mt-2 h-12 w-full rounded-[4px] border border-line bg-white px-4 text-sm text-charcoal focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
           />
           {errors.email ? <p className="mt-2 text-sm text-red-700">{errors.email}</p> : null}
         </div>
@@ -188,7 +188,7 @@ export default function BookingForm() {
             name="phone"
             type="tel"
             autoComplete="tel"
-            className="mt-2 h-12 w-full rounded-full border border-line bg-white px-4 text-sm text-charcoal focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+            className="mt-2 h-12 w-full rounded-[4px] border border-line bg-white px-4 text-sm text-charcoal focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
           />
           {errors.phone ? <p className="mt-2 text-sm text-red-700">{errors.phone}</p> : null}
         </div>
@@ -206,7 +206,7 @@ export default function BookingForm() {
             id="message"
             name="message"
             rows={3}
-            className="mt-2 w-full rounded-[24px] border border-line bg-white px-4 py-3 text-sm text-charcoal focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+            className="mt-2 w-full rounded-[4px] border border-line bg-white px-4 py-3 text-sm text-charcoal focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
           />
           {errors.message ? <p className="mt-2 text-sm text-red-700">{errors.message}</p> : null}
         </div>

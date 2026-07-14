@@ -28,7 +28,7 @@ export default function UeberUns() {
         <section className="mx-auto grid max-w-7xl gap-10 px-6 py-14 md:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:px-10">
           <div>
             <p className="section-label">Über uns</p>
-            <h1 className="mt-4 font-serif text-5xl font-black leading-tight text-charcoal md:text-7xl">
+            <h1 className="mt-4 font-serif text-5xl font-normal leading-[1.02] text-charcoal md:text-7xl">
               Eine Bio-Bäckerei mit Haltung.
             </h1>
             <div className="mt-7 space-y-5 text-base leading-8 text-muted">
@@ -37,7 +37,7 @@ export default function UeberUns() {
               ))}
             </div>
           </div>
-          <div className="relative min-h-[380px] overflow-hidden rounded-[42px] border border-line shadow-soft">
+          <div className="relative min-h-[380px] overflow-hidden rounded-[6px] border border-primary/20">
             <Image
               src="/images/sections/laden-team-service.jpg"
               alt="Mitarbeiterin der Bio-Bäckerei Bucco im Laden an der Theke"
@@ -58,9 +58,9 @@ export default function UeberUns() {
             />
             <div className="mt-12 grid gap-6 md:grid-cols-2">
               {teamFacts.map((person) => (
-                <article key={person.name} className="rounded-[30px] border border-line bg-background p-7 shadow-soft">
+                <article key={person.name} className="rounded-[6px] border border-primary/20 bg-background p-7">
                   <p className="section-label">{person.role}</p>
-                  <h2 className="mt-3 font-serif text-3xl font-black text-charcoal">{person.name}</h2>
+                  <h2 className="mt-3 font-serif text-3xl font-normal text-charcoal">{person.name}</h2>
                   <p className="mt-4 text-sm leading-7 text-muted">{person.text}</p>
                 </article>
               ))}
@@ -69,24 +69,24 @@ export default function UeberUns() {
         </section>
 
         <section className="mx-auto max-w-7xl px-6 py-16 md:px-8 lg:px-10">
-          <div className="grid gap-6 md:grid-cols-3">
-            <div className="rounded-[30px] border border-line bg-surface p-7 shadow-soft">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            <div className="rounded-[6px] border border-primary/20 bg-surface p-7 md:col-span-2">
               <LeafIcon className="h-9 w-9 text-primary" />
-              <h2 className="mt-5 font-serif text-2xl font-black text-charcoal">Bio aus Überzeugung</h2>
+              <h2 className="mt-5 font-serif text-2xl font-normal text-charcoal">Bio aus Überzeugung</h2>
               <p className="mt-3 text-sm leading-7 text-muted">
                 Bio ist hier kein Deko-Wort, sondern die Grundlage der Zutatenwahl.
               </p>
             </div>
-            <div className="rounded-[30px] border border-line bg-surface p-7 shadow-soft">
+            <div className="rounded-[6px] border border-primary/20 bg-surface p-7">
               <HandsIcon className="h-9 w-9 text-primary" />
-              <h2 className="mt-5 font-serif text-2xl font-black text-charcoal">Handwerk vor Masse</h2>
+              <h2 className="mt-5 font-serif text-2xl font-normal text-charcoal">Handwerk vor Masse</h2>
               <p className="mt-3 text-sm leading-7 text-muted">
                 Frische wird nicht endlos simuliert. Was ausverkauft ist, ist ausverkauft.
               </p>
             </div>
-            <div className="rounded-[30px] border border-line bg-surface p-7 shadow-soft">
+            <div className="rounded-[6px] border border-primary/20 bg-surface p-7">
               <GrainIcon className="h-9 w-9 text-primary" />
-              <h2 className="mt-5 font-serif text-2xl font-black text-charcoal">Paulicks-Mühle</h2>
+              <h2 className="mt-5 font-serif text-2xl font-normal text-charcoal">Paulicks-Mühle</h2>
               <p className="mt-3 text-sm leading-7 text-muted">
                 Das Bio-Mehl kommt unter anderem von der Paulicks-Mühle.
               </p>

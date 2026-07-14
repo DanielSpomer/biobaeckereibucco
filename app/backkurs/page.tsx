@@ -16,25 +16,25 @@ export default function Backkurs() {
         <section className="mx-auto grid max-w-7xl gap-10 px-6 py-14 md:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:px-10">
           <div>
             <p className="section-label">Backkurs</p>
-            <h1 className="mt-4 font-serif text-5xl font-black leading-tight text-charcoal md:text-7xl">
+            <h1 className="mt-4 font-serif text-5xl font-normal leading-[1.02] text-charcoal md:text-7xl">
               Lernen, was guter Teig braucht.
             </h1>
             <p className="mt-6 text-lg leading-8 text-muted">{course.description}</p>
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
-              <div className="rounded-[30px] border border-line bg-surface p-5 shadow-soft">
+              <div className="rounded-[6px] border border-primary/20 bg-surface p-5">
                 <ClockIcon className="h-7 w-7 text-primary" />
                 <p className="mt-4 font-semibold text-charcoal">{course.cadence}</p>
                 <p className="mt-1 text-sm text-muted">{course.time}</p>
               </div>
-              <div className="rounded-[30px] border border-line bg-surface p-5 shadow-soft">
+              <div className="rounded-[6px] border border-primary/20 bg-surface p-5">
                 <p className="section-label">Kosten</p>
-                <p className="mt-3 font-serif text-4xl font-black text-charcoal">{course.price}</p>
+                <p className="mt-3 font-serif text-4xl font-normal text-charcoal">{course.price}</p>
                 <p className="mt-1 text-sm text-muted">{course.reducedPrice}</p>
               </div>
             </div>
           </div>
 
-          <div className="relative min-h-[360px] overflow-hidden rounded-[42px] border border-line shadow-soft">
+          <div className="relative min-h-[360px] overflow-hidden rounded-[6px] border border-primary/20">
             <Image
               src="/images/sections/backstube-weizenteig.jpg"
               alt="Bäcker in der Backstube beim Portionieren von Weizenteig"
@@ -55,7 +55,7 @@ export default function Backkurs() {
             />
             <div className="mt-12 grid gap-6 md:grid-cols-2">
               {course.included.map((item) => (
-                <div key={item} className="flex gap-4 rounded-[30px] border border-line bg-background p-6">
+                <div key={item} className="flex gap-4 border-l-2 border-yellow bg-background p-6">
                   <HandsIcon className="mt-1 h-7 w-7 shrink-0 text-primary" />
                   <p className="text-base leading-7 text-muted">{item}</p>
                 </div>
@@ -68,7 +68,7 @@ export default function Backkurs() {
           <div className="mx-auto grid max-w-7xl gap-10 px-6 md:px-8 lg:grid-cols-[0.85fr_1.15fr] lg:px-10">
             <div>
               <p className="section-label text-yellow">Terminbuchung</p>
-              <h2 className="mt-3 font-serif text-4xl font-black leading-tight md:text-5xl">
+              <h2 className="mt-3 font-serif text-4xl font-normal leading-tight md:text-5xl">
                 Platz sichern, Details abstimmen.
               </h2>
               <p className="mt-5 text-base leading-8 text-white/78">

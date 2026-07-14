@@ -10,7 +10,7 @@ export default function CourseTeaser() {
       <div className="mx-auto grid max-w-7xl gap-10 px-6 md:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:px-10">
         <div>
           <p className="section-label text-yellow">Backkurs</p>
-          <h2 className="mt-3 font-serif text-4xl font-black leading-tight md:text-6xl">
+          <h2 className="mt-3 font-serif text-4xl font-normal leading-[1.05] md:text-6xl">
             Backen lernen - mit Liebe zum Detail.
           </h2>
           <p className="mt-5 max-w-xl text-base leading-8 text-white/78">{course.description}</p>
@@ -33,7 +33,7 @@ export default function CourseTeaser() {
             </div>
           </div>
 
-          <div className="mt-8 overflow-hidden rounded-[34px] border border-white/18">
+          <div className="mt-8 overflow-hidden rounded-[6px] border border-white/25">
             <Image
               src="/images/sections/backstube-weizenteig.jpg"
               alt="Bäcker in der Backstube beim Portionieren von Weizenteig"
@@ -44,7 +44,7 @@ export default function CourseTeaser() {
             />
           </div>
 
-          <Link href="/backkurs" className="mt-7 inline-flex items-center gap-2 rounded-full px-3 py-2 text-sm font-extrabold text-yellow transition hover:bg-yellow hover:text-charcoal active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-yellow focus:ring-offset-2 focus:ring-offset-primary motion-reduce:transition-none">
+          <Link href="/backkurs" className="mt-7 inline-flex min-h-11 items-center gap-2 rounded-[4px] border border-yellow/70 px-4 py-2 text-sm font-extrabold text-yellow transition hover:bg-yellow hover:text-primary active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-yellow focus:ring-offset-2 focus:ring-offset-primary motion-reduce:transition-none">
             Kursdetails ansehen
             <ArrowIcon />
           </Link>

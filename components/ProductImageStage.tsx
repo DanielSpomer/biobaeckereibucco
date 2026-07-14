@@ -20,7 +20,7 @@ export default function ProductImageStage({
 
   return (
     <div
-      className="product-image-stage relative aspect-[4/3] shrink-0 overflow-hidden bg-[#f7f3ec]"
+      className="product-image-stage relative aspect-[4/3] shrink-0 overflow-hidden bg-white"
       onMouseEnter={() => {
         if (hasSecondPerspective) setActiveIndex(1)
       }}
@@ -36,40 +36,42 @@ export default function ProductImageStage({
           loading={priority && index > 0 ? 'eager' : undefined}
           sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
           className={[
-            'object-cover transition duration-500 ease-out motion-reduce:transition-none',
+            'object-contain p-4 transition duration-500 ease-out motion-reduce:transition-none md:p-5',
             index === activeIndex
               ? 'scale-100 opacity-100'
-              : 'scale-[1.025] opacity-0',
-            index === 0 ? 'group-hover:scale-[1.035]' : '',
+              : 'scale-[1.018] opacity-0',
+            index === 0 ? 'group-hover:scale-[1.025]' : '',
           ].join(' ')}
         />
       ))}
 
       {hasSecondPerspective ? (
         <>
-          <div className="pointer-events-none absolute bottom-4 left-4 rounded-full bg-surface/90 px-3 py-1 text-[0.68rem] font-extrabold uppercase text-primary opacity-0 shadow-sm backdrop-blur transition duration-300 group-hover:opacity-100 group-focus-within:opacity-100 motion-reduce:transition-none">
-            zweite Ansicht
+          <div className="pointer-events-none absolute left-3 top-3 rounded-[3px] border border-primary/15 bg-white/94 px-2.5 py-1 text-[0.64rem] font-extrabold uppercase text-primary opacity-0 transition duration-300 group-hover:opacity-100 group-focus-within:opacity-100 motion-reduce:transition-none">
+            {images[activeIndex].label}
           </div>
-          <div className="absolute bottom-3 right-3 flex gap-1 rounded-full bg-surface/92 p-1 shadow-soft backdrop-blur">
+          <div className="absolute bottom-3 right-3 flex gap-1.5 rounded-[5px] border border-primary/15 bg-white/94 p-1.5 shadow-[0_8px_22px_rgba(0,53,127,0.10)] backdrop-blur">
             {images.map((image, index) => (
               <button
                 key={image.src}
                 type="button"
                 className={[
-                  'flex h-11 w-11 items-center justify-center rounded-full transition active:scale-95 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-surface motion-reduce:transition-none',
-                  index === activeIndex ? 'bg-primary/10' : 'hover:bg-primary/8',
+                  'relative h-11 w-14 overflow-hidden rounded-[3px] border bg-white transition active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-white motion-reduce:transition-none',
+                  index === activeIndex
+                    ? 'border-primary shadow-[inset_0_-3px_0_#ffca50]'
+                    : 'border-line hover:border-primary/55',
                 ].join(' ')}
                 aria-label={`${productName}: ${image.label} anzeigen`}
                 aria-pressed={index === activeIndex}
                 onClick={() => setActiveIndex(index)}
                 onFocus={() => setActiveIndex(index)}
               >
-                <span
-                  className={[
-                    'h-2.5 w-2.5 rounded-full transition motion-reduce:transition-none',
-                    index === activeIndex ? 'bg-primary' : 'bg-line',
-                  ].join(' ')}
-                  aria-hidden="true"
+                <Image
+                  src={image.src}
+                  alt=""
+                  fill
+                  sizes="56px"
+                  className="object-contain p-1"
                 />
               </button>
             ))}

@@ -19,17 +19,17 @@ export default function Header() {
   const pathname = usePathname()
 
   return (
-    <header className="sticky top-0 z-50 border-b border-line/70 bg-background/92 backdrop-blur-xl">
-      <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-5 py-2 md:px-8 lg:px-10">
+    <header className="sticky top-0 z-50 border-b border-primary/15 bg-surface/95 backdrop-blur-xl">
+      <div className="mx-auto flex min-h-[82px] w-full max-w-7xl items-center justify-between px-5 md:px-8 lg:px-10">
         <Link href="/" className="flex shrink-0 items-center" aria-label="Zur Startseite">
           <Logo
             variant="headerBlue"
             priority
-            className="h-[70px] w-[83px] object-contain md:h-[82px] md:w-[97px]"
+            className="h-[66px] w-[79px] object-contain md:h-[72px] md:w-[86px]"
           />
         </Link>
 
-        <nav className="hidden items-center gap-2 rounded-full border border-line/80 bg-surface/80 p-1.5 md:flex">
+        <nav className="hidden items-center gap-1 lg:flex">
           {navigation.map((item) => {
             const active = item.href === '/' ? pathname === '/' : pathname?.startsWith(item.href)
 
@@ -39,8 +39,8 @@ export default function Header() {
                 href={item.href}
                 className={
                   active
-                    ? 'rounded-full bg-yellow px-4 py-2 text-sm font-extrabold text-charcoal'
-                    : 'rounded-full px-4 py-2 text-sm font-bold text-muted transition hover:bg-white/70 hover:text-primary active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-surface motion-reduce:transition-none'
+                    ? 'rounded-[3px] bg-yellow px-4 py-2.5 text-sm font-extrabold text-primary'
+                    : 'rounded-[3px] px-4 py-2.5 text-sm font-bold text-muted transition hover:bg-primary/6 hover:text-primary active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-surface motion-reduce:transition-none'
                 }
               >
                 {item.name}
@@ -49,7 +49,7 @@ export default function Header() {
           })}
         </nav>
 
-        <Link href="/backkurs" className="hidden items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-extrabold text-white shadow-[0_12px_28px_rgba(0,53,127,0.18)] transition duration-300 hover:-translate-y-0.5 hover:bg-primary-bright active:translate-y-0 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 motion-reduce:transition-none md:inline-flex">
+        <Link href="/backkurs" className="hidden min-h-11 items-center gap-2 rounded-[4px] bg-primary px-5 py-3 text-sm font-extrabold text-white transition duration-200 hover:bg-primary-bright active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 motion-reduce:transition-none lg:inline-flex">
           Backkurs buchen
           <ArrowIcon className="h-4 w-4" />
         </Link>
@@ -57,7 +57,7 @@ export default function Header() {
         <button
           type="button"
           onClick={() => setIsMenuOpen((open) => !open)}
-          className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-line bg-surface text-primary transition active:scale-95 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 md:hidden"
+          className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-[4px] border border-primary/25 bg-white text-primary transition active:scale-95 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 lg:hidden"
           aria-label={isMenuOpen ? 'Menü schließen' : 'Menü öffnen'}
           aria-expanded={isMenuOpen}
         >
@@ -73,14 +73,14 @@ export default function Header() {
       </div>
 
       {isMenuOpen ? (
-        <nav className="border-t border-line bg-background px-5 py-4 md:hidden">
+        <nav className="border-t border-primary/15 bg-surface px-5 py-4 lg:hidden">
           <div className="flex flex-col gap-2">
             {navigation.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 onClick={() => setIsMenuOpen(false)}
-                className="rounded-full px-4 py-3 text-sm font-semibold text-charcoal transition hover:bg-surface active:scale-[0.99] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                className="rounded-[4px] px-4 py-3 text-sm font-semibold text-charcoal transition hover:bg-yellow/35 active:scale-[0.99] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
               >
                 {item.name}
               </Link>

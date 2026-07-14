@@ -40,43 +40,63 @@ test('central product content exists with the approved Bucco catalog', () => {
 
   const content = read('lib/content.ts')
   for (const product of [
-    'Roggenbrot',
-    'Sonnenblumenkernbrot',
-    'Walnussbrot',
     'Bauernbrot',
-    'Dinkelvollkornbrot',
-    'Buccos Kräuter Ritter',
-    'Weizenvollkornbrötchen m. Saaten',
-    'Schrippen/Sternbrötchen',
-    'Süße Brötchen',
-    'Croissant/Hörnchen',
-    'Obstzungen',
-    'Mohnzopfen',
-    'Bierknoten',
+    'Sonnenblumenkernbrot',
+    'Dinkelvollkornbrot mit Saaten',
+    'Walnussbrot',
+    'Landbrot',
+    'Haselnussbrot',
+    'Kürbiskernbrot',
+    'Quarkbrot',
+    'Zwiebelbrot',
+    'Weißbrot',
+    'Schrippe',
+    'Dinkelbaguettebrötchen',
+    'Dinkelvollkornbrötchen',
+    'Dinkelvollkornseele',
+    'Dinkelkraftbrötchen',
+    'Croissant',
+    'Vollkorncroissant',
+    'Franzbrötchen',
+    'Rosinenbrötchen',
   ]) {
     assert.match(content, new RegExp(product.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')))
   }
 })
 
 test('product perspective assets exist for the complete catalog', () => {
-  for (const slug of [
-    'roggenbrot',
-    'sonnenblumenkernbrot',
-    'walnussbrot',
-    'bauernbrot',
-    'dinkelvollkornbrot',
-    'buccos-kraeuter-ritter',
-    'weizenvollkornbroetchen-saaten',
-    'schrippen-sternbroetchen',
-    'bierknoten',
-    'suesse-broetchen',
-    'croissant-hoernchen',
-    'obstzungen',
-    'mohnzopfen',
-  ]) {
-    assert.equal(existsSync(join(root, `public/images/products/${slug}-01.jpg`)), true)
-    assert.equal(existsSync(join(root, `public/images/products/${slug}-02.jpg`)), true)
+  const perspectives = {
+    bauernbrot: 2,
+    sonnenblumenkernbrot: 3,
+    dinkelvollkornbrot: 1,
+    walnussbrot: 2,
+    landbrot: 2,
+    haselnussbrot: 2,
+    kuerbiskernbrot: 2,
+    quarkbrot: 2,
+    zwiebelbrot: 2,
+    weissbrot: 1,
+    'schrippen-sternbroetchen': 2,
+    dinkelbaguettebroetchen: 2,
+    dinkelvollkornbroetchen: 1,
+    dinkelvollkornseele: 1,
+    dinkelkraftbroetchen: 1,
+    'croissant-hoernchen': 2,
+    vollkorncroissant: 1,
+    franzbroetchen: 1,
+    rosinenbroetchen: 1,
   }
+
+  for (const [slug, count] of Object.entries(perspectives)) {
+    for (let index = 1; index <= count; index += 1) {
+      const suffix = String(index).padStart(2, '0')
+      assert.equal(existsSync(join(root, `public/images/products/${slug}-${suffix}.jpg`)), true)
+    }
+  }
+})
+
+test('real product photos can be regenerated with the approved normalization pipeline', () => {
+  assert.equal(existsSync(join(root, 'scripts/prepare_product_photos.py')), true)
 })
 
 test('real bakery section photos from approved image set are present', () => {

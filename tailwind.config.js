@@ -8,22 +8,22 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        background: '#f2ebd0',
-        surface: '#fff9e9',
-        'surface-container': '#e8ddbe',
+        background: '#f4f0e4',
+        surface: '#fffdf7',
+        'surface-container': '#e9e2cf',
         primary: '#00357f',
-        'primary-bright': '#004aad',
+        'primary-bright': '#0a4d9b',
         yellow: '#ffca50',
         sky: '#6aacc2',
         green: '#6fa162',
         red: '#a0342a',
-        charcoal: '#3b2722',
-        muted: '#5c5049',
-        line: '#d9c9a5',
+        charcoal: '#202427',
+        muted: '#565c5e',
+        line: '#d5ccb8',
       },
       fontFamily: {
-        serif: ['Merriweather', 'Georgia', 'serif'],
-        sans: ['Inter', 'sans-serif'],
+        serif: ['Mediator Serif', 'Georgia', 'serif'],
+        sans: ['Avenir Next', 'Helvetica Neue', 'Arial', 'sans-serif'],
       },
       boxShadow: {
         soft: '0 16px 36px rgba(59, 39, 34, 0.08)',

@@ -16,9 +16,9 @@ export default function SectionHeading({
   const inverse = tone === 'inverse'
 
   return (
-    <div className={align === 'center' ? 'mx-auto max-w-3xl text-center' : 'max-w-3xl'}>
+    <div className={align === 'center' ? 'mx-auto max-w-3xl text-center' : 'max-w-4xl'}>
       {eyebrow ? <p className={inverse ? 'section-label text-yellow' : 'section-label'}>{eyebrow}</p> : null}
-      <h2 className={inverse ? 'mt-3 font-serif text-3xl font-black leading-tight text-white md:text-5xl' : 'mt-3 font-serif text-3xl font-black leading-tight text-charcoal md:text-5xl'}>
+      <h2 className={inverse ? 'mt-3 font-serif text-4xl font-normal leading-[1.05] text-white md:text-6xl' : 'mt-3 font-serif text-4xl font-normal leading-[1.05] text-charcoal md:text-6xl'}>
         {title}
       </h2>
       {description ? (
