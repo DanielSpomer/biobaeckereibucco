@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { Camera } from 'lucide-react'
 import { businessInfo } from '../lib/content'
 import Logo from './Logo'
 
@@ -37,11 +38,7 @@ export default function Footer() {
             className="mt-6 inline-flex h-10 w-10 items-center justify-center rounded-full border border-primary/30 text-primary transition hover:bg-primary hover:text-yellow focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-yellow"
             aria-label="Bio-Bäckerei Bucco auf Instagram"
           >
-            <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <rect x="5" y="5" width="14" height="14" rx="4" stroke="currentColor" strokeWidth="1.8" />
-              <circle cx="12" cy="12" r="3.2" stroke="currentColor" strokeWidth="1.8" />
-              <path d="M16.7 7.5h.1" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" />
-            </svg>
+            <Camera className="h-5 w-5" strokeWidth={1.8} aria-hidden="true" />
           </a>
         </div>
 

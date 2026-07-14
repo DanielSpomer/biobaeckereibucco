@@ -7,8 +7,6 @@ import Header from '../components/Header'
 import {
   ArrowIcon,
   ClockIcon,
-  GrainIcon,
-  HandsIcon,
   LeafIcon,
   QualityIcon,
   RegionIcon,
@@ -18,10 +16,10 @@ import SectionHeading from '../components/SectionHeading'
 import { businessInfo, featuredProducts, values } from '../lib/content'
 
 const trustItems = [
-  { icon: LeafIcon, label: '100% Bio zertifiziert' },
-  { icon: GrainIcon, label: 'Natürliche Zutaten' },
-  { icon: HandsIcon, label: 'Handwerk mit Herz' },
-  { icon: RegionIcon, label: 'Regionale Partner' },
+  '100% Bio zertifiziert',
+  'Natürliche Zutaten',
+  'Handwerk mit Herz',
+  'Regionale Partner',
 ]
 
 const valueIcons = [LeafIcon, ClockIcon, QualityIcon, RegionIcon]
@@ -72,16 +70,12 @@ export default function Home() {
 
           <div className="absolute inset-x-0 bottom-0 z-20 border-t border-primary/15 bg-surface">
             <div className="mx-auto grid max-w-7xl gap-3 px-6 py-4 sm:grid-cols-2 md:px-8 lg:grid-cols-4 lg:px-10">
-              {trustItems.map((item) => {
-                const Icon = item.icon
-
-                return (
-                  <div key={item.label} className="flex items-center gap-3 border-l border-primary/20 pl-4">
-                    <Icon className="h-6 w-6 text-primary" />
-                    <p className="text-xs font-bold leading-snug text-muted">{item.label}</p>
-                  </div>
-                )
-              })}
+              {trustItems.map((item) => (
+                <div key={item} className="flex items-center gap-3 border-l border-primary/20 pl-4">
+                  <span className="h-2 w-2 shrink-0 rounded-full bg-yellow ring-1 ring-primary/15" aria-hidden="true" />
+                  <p className="text-xs font-bold leading-snug text-muted">{item}</p>
+                </div>
+              ))}
             </div>
           </div>
         </section>

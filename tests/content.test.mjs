@@ -124,14 +124,17 @@ test('footer and contact source use the approved opening hours', () => {
   assert.match(haystack, /So.*Geschlossen/s)
 })
 
-test('product cards link to detail pages without perspective overlays or text clamping', () => {
+test('product cards link to detail pages without perspective controls or text clamping', () => {
   const card = read('components/ProductCard.tsx')
   const stage = read('components/ProductImageStage.tsx')
   const styles = read('app/globals.css')
 
   assert.match(card, /href={`\/produkte\/\$\{product\.slug\}`}/)
-  assert.match(card, /Produkt ansehen/)
-  assert.doesNotMatch(stage, /aria-pressed|activeIndex|<button/)
+  assert.doesNotMatch(card, /Produkt ansehen/)
+  assert.match(stage, /onMouseEnter/)
+  assert.match(stage, /onTouchStart/)
+  assert.match(stage, /handleTouchEnd/)
+  assert.doesNotMatch(stage, /aria-pressed|<button/)
   assert.doesNotMatch(styles, /-webkit-line-clamp/)
 })
 
@@ -153,6 +156,23 @@ test('favicon is the isolated yellow Bucco bread mark', () => {
 
   assert.match(favicon, /M66 119c5-17/)
   assert.match(favicon, /#ffca50/g)
-  assert.doesNotMatch(favicon, /#00357f/)
+  assert.match(favicon, /#00357f/)
   assert.equal(existsSync(join(root, 'app/icon.svg')), true)
+  assert.equal(existsSync(join(root, 'app/favicon.ico')), true)
+  assert.equal(existsSync(join(root, 'app/apple-icon.png')), true)
+})
+
+test('shared interface icons use the consistent Lucide icon set', () => {
+  const icons = read('components/Icons.tsx')
+  const header = read('components/Header.tsx')
+  const footer = read('components/Footer.tsx')
+
+  assert.match(icons, /from 'lucide-react'/)
+  assert.match(icons, /<Hand /)
+  assert.match(icons, /<Sprout /)
+  assert.doesNotMatch(icons, /<path /)
+  assert.match(header, /<Menu /)
+  assert.match(header, /<X /)
+  assert.match(footer, /<Camera /)
+  assert.doesNotMatch(`${header}\n${footer}`, /<svg /)
 })
